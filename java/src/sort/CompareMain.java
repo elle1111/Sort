@@ -11,7 +11,13 @@ public class CompareMain {
         int[] arrayBubble=Arrays.copyOf(array,length);
         int[] arrayMerge=Arrays.copyOf(array,length);
         int[] arrayQuick=Arrays.copyOf(array,length);
+        int[] arrayHeap=Arrays.copyOf(array,length);
         int[] arrayBlank=new int[length];
+        HeapSort heapsort = new HeapSort();
+        long heapStart = System.currentTimeMillis();
+        heapsort.heapSort(arrayHeap);
+        long heapEnd=System.currentTimeMillis();
+        System.out.println("Heap sort time:"+(heapEnd-heapStart));
         InsertSort insertSort=new InsertSort();
         long insertStart=System.currentTimeMillis();
         insertSort.sort(arrayInsert);
