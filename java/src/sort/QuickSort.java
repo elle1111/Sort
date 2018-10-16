@@ -23,19 +23,9 @@ public class QuickSort {
 
     public void sort(int[] array, int leftInclusive, int rightInclusive) {
         //left包含，right不包含
-        int length=rightInclusive-leftInclusive;
-        if(length<=0) {
+        int length=rightInclusive-leftInclusive+1;
+        if(length<=1) {
             return;
-        }
-        if(length==1){
-            if(array[rightInclusive-1]<array[leftInclusive]){
-                int tmp;
-                tmp=array[rightInclusive-1];
-                array[rightInclusive-1]=array[leftInclusive];
-                array[leftInclusive]=tmp;
-                return;
-            }
-            else return;
         }
         int pivotPosition = partition(array, leftInclusive, rightInclusive);
         //System.out.println("left:"+leftInclusive);
@@ -46,9 +36,13 @@ public class QuickSort {
         sort(array, pivotPosition+1, rightInclusive);
     }
 
+    /**
+     * 将array[rightInclusive]调整到最终排序所需要在的位置并返回该位置
+     * @return array[rightInclusive]调整到最终排序所需要在的位置
+     */
     public int partition(int[] array, int leftInclusive, int rightInclusive) {
-
         int pivot = array[rightInclusive];
+        //i是最后一个小于等于pivot的下标
         int i = leftInclusive - 1;
         for (int j = leftInclusive; j < rightInclusive; j++) {
             if (array[j] <= pivot) {
@@ -61,11 +55,11 @@ public class QuickSort {
                 array[i] = tmp;
             }
         }
-            //交换A[i+1]和pivot
-            int tmp1;
-            tmp1 = array[i + 1];
-            array[i+1] = array[rightInclusive];
-            array[rightInclusive] = tmp1;
+        //交换A[i+1]和pivot
+        int tmp1;
+        tmp1 = array[i + 1];
+        array[i+1] = array[rightInclusive];
+        array[rightInclusive] = tmp1;
         return i+1;
         /*
         //int pivot=array[0];
