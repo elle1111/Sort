@@ -42,25 +42,25 @@ public class QuickSort {
      */
     public int partition(int[] array, int leftInclusive, int rightInclusive) {
         int pivot = array[rightInclusive];
-        //i是最后一个小于等于pivot的下标
-        int i = leftInclusive - 1;
+        //lastLesser是最后一个小于等于pivot的下标
+        int lastLesser = leftInclusive - 1;
         for (int j = leftInclusive; j < rightInclusive; j++) {
             if (array[j] <= pivot) {
                 //记下小于pivot的个数
-                i = i + 1;
-                //交换A[i]和A[j]
-                int tmp;
-                tmp = array[j];
-                array[j] = array[i];
-                array[i] = tmp;
+                lastLesser = lastLesser + 1;
+                //交换A[lastLesser]和A[j]
+                int temp;
+                temp = array[j];
+                array[j] = array[lastLesser];
+                array[lastLesser] = temp;
             }
         }
-        //交换A[i+1]和pivot
+        //交换A[lastLesser+1]和pivot
         int tmp1;
-        tmp1 = array[i + 1];
-        array[i+1] = array[rightInclusive];
+        tmp1 = array[lastLesser + 1];
+        array[lastLesser+1] = array[rightInclusive];
         array[rightInclusive] = tmp1;
-        return i+1;
+        return lastLesser+1;
         /*
         //int pivot=array[0];
         int tmp;
