@@ -24,15 +24,15 @@ public class Maopao{
     //PrintUtil.printArray(array2);
     }
     public void sort(int[] array){
-        int tmp;
-        for(int i=array.length-1;i>=0;i--){
-            for(int j=0;j<i;j++){
+        int temp;
+        for(int lastUnsortedIndex=array.length-1;lastUnsortedIndex>=0;lastUnsortedIndex--){
+            for(int j=0;j<lastUnsortedIndex;j++){
                if(array[j]>array[j+1]){
                    //PrintUtil.printArray(array);
-                   tmp=array[j];
+                   temp=array[j];
                    //System.out.println(tmp);
                    array[j]=array[j+1];
-                   array[j+1]=tmp;
+                   array[j+1]=temp;
                 }
             }
         }
