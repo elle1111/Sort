@@ -24,10 +24,10 @@ public class Maopao{
     //PrintUtil.printArray(array2);
     }
     public void sort(int[] array){
-        int temp;
         for(int lastUnsortedIndex=array.length-1;lastUnsortedIndex>=0;lastUnsortedIndex--){
             for(int j=0;j<lastUnsortedIndex;j++){
                if(array[j]>array[j+1]){
+                   int temp;
                    //PrintUtil.printArray(array);
                    temp=array[j];
                    //System.out.println(tmp);
